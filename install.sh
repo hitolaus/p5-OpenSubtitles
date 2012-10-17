@@ -20,7 +20,7 @@ fi
 CURRENT_DIR=$(pwd)
 
 cd $TMP_DIR
-curl -L https://github.com/hitolaus/p5-OpenSubtitles/tarball/master > $TMP_FILE
+curl -k -L https://github.com/hitolaus/p5-OpenSubtitles/tarball/master > $TMP_FILE
 if [[ $? -ne 0 ]]; then
 	echo "Unable to fetch the tarball"
 	exit 7
@@ -47,6 +47,9 @@ if [[ $? -ne 0 ]]; then
 	echo "Unable to build the module. Are you sure that you have make installed?"
 	exit 7
 fi
+
+cd ..
+rm -fr hitolaus-p5-OpenSubtitles-*/
 
 # Return to original directory
 cd $CURRENT_DIR
