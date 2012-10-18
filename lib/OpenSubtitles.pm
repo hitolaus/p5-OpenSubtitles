@@ -53,7 +53,11 @@ sub download
         return;
     }
     
-    my $subtitle = _best_subtitle(@result) or die("Cannot find subtitle for $filename");
+    my $subtitle = _best_subtitle(@result);
+    if (!$subtitle) {
+        print "Cannot find subtitle for $filename\n";
+        return;
+    }
     
     my ( $name, $path, $suffix ) = fileparse( $filename, qr/\.[^.]*/ );
     
