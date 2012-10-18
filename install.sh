@@ -7,8 +7,7 @@ TMP_DIR=/tmp
 TMP_FILE=p5-OpenSubtitles-master.tar.gz
 
 # Check if run as root otherwise give warning
-USER_ID=$(id)
-if [[ $USER_ID != 0 ]]; then
+if [[ $UID != 0 ]]; then
 	echo " ==== WARNING ================================= "
 	echo "  You are running as a non-root user!"
 	echo "  It may not be possible to install the module."
