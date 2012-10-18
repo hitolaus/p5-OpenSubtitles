@@ -53,7 +53,7 @@ sub download
         return;
     }
     
-    my $subtitle = _best_subtitle(@result) || die("Cannot find subtitle for $filename");
+    my $subtitle = _best_subtitle(@result) or die("Cannot find subtitle for $filename");
     
     my ( $name, $path, $suffix ) = fileparse( $filename, qr/\.[^.]*/ );
     
@@ -81,6 +81,11 @@ sub _best_subtitle
 sub _is_subtitle_supported
 {
     my $subtitle = shift;
+    
+    if (!$subtitle) {
+        return 0;
+    }
+    
     return @$subtitle[0]->{SubFormat} == "srt";
 }
 
