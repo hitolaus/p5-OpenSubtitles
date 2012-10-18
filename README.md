@@ -16,4 +16,4 @@ To manually build the module. Execute the following step:
 
 If you don't want to manually run the build steps you can just run the following command:
 
-	$ sudo curl -L https://raw.github.com/hitolaus/p5-OpenSubtitles/master/install.sh | sh
+	$ sudo curl -k -L https://raw.github.com/hitolaus/p5-OpenSubtitles/master/install.sh | sh
